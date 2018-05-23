@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
-using System.Text;
-using System.Threading.Tasks;
-using LumenWorks.Framework.IO.Csv;
 
 namespace ConsoleApp
 {
@@ -13,37 +9,82 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            const string filePath = @"C:\Users\gchan\Documents\DBIO2\Performance\dumpfile.csv";
+            //const string filePath = @"C:\Users\gchan\Documents\DBIO2\Performance\dumpfile.csv";
 
-            using (LumenWorks.Framework.IO.Csv.CsvReader csv = new LumenWorks.Framework.IO.Csv.CsvReader(new StreamReader(filePath), true))
+            // TODO: check if dataset name already exists before processing
+
+            if (args == null || args.Length == 0)
             {
-                //string[] headers = csv.GetFieldHeaders();
-                string[] headers = {"EventName", "Type", "EventId", "Version", "Channel", "Level"};
-                
+                Console.WriteLine("The filename and client must be supplied");
+            }
+            else if (args.Length == 1)
+            {
+                Console.WriteLine("The client must be supplied");
+            }
+            else if (!IsCsvFile(args[0]))
+            {
+                Console.WriteLine($"The file supplied '{args[0]}' is not a valid CSV");
+            }
+            else
+            {
+                Console.WriteLine($"Starting reading file '{args[0]}' for Mine Site '{args[1]}'...");
 
-                // TODO: create db table from headers or append data if one already exists?
-
-                using (var table = new DataTable())  
+                using (var csv = new LumenWorks.Framework.IO.Csv.CsvReader(new StreamReader(args[0]), true))
                 {
-                    table.Columns.Add(headers[0], typeof(string));
-                    table.Columns.Add(headers[1], typeof(string));
-                    table.Columns.Add(headers[2], typeof(int));
+                    //string[] headers = csv.GetFieldHeaders();
+                    string[] headers = { "EventName", "Type", "EventId", "Version", "Channel", "Level" };
 
-                    while (csv.ReadNextRecord())
+                    using (var table = new DataTable())
                     {
-                        //for (int i = 0; i < fieldCount; i++)
-                        //{
-                        //    Console.Write($"{headers[i]} = {csv[i]};");
-                        //}
+                        table.Columns.Add(headers[0], typeof(string));
+                        table.Columns.Add(headers[1], typeof(string));
+                        table.Columns.Add(headers[2], typeof(int));
+                        // todo: add remaining here...
+                        table.Columns.Add("MineSite", typeof(string));
 
-                        //Console.WriteLine();
+                        while (csv.ReadNextRecord())
+                        {
+                            table.Rows.Add(csv[0], csv[1], csv[2], args[1]);
+                        }
 
-                        table.Rows.Add(csv[0], csv[1], csv[2]);
+                        BulkInsertDataTable("etw.DispatchEvent", table);
+
+                        Console.WriteLine($"Finished importing {table.Rows.Count} rows for file '{args[0]}'.");
                     }
-
-                    BulkInsertDataTable("etw.DispatchEvent", table);
                 }
             }
+
+        }
+
+        private static bool IsCsvFile(string filename)
+        {
+
+            // todo: do we want more robust validation or just check filename extension good enough?
+            string ext = Path.GetExtension(filename);
+
+            if (ext == null)
+                return false;
+
+            return ext.ToLower().Contains("csv");
+
+            //using (var parser = new TextFieldParser(filename))
+            //{
+            //    parser.TextFieldType = FieldType.Delimited;
+            //    parser.SetDelimiters(",");
+
+            //    string[] line;
+            //    while (!parser.EndOfData)
+            //    {
+            //        try
+            //        {
+            //            line = parser.ReadFields();
+            //        }
+            //        catch (MalformedLineException ex)
+            //        {
+            //            // log ex.Message
+            //        }
+            //    }
+            //}
         }
 
         public static void BulkInsertDataTable(string tableName, DataTable dataTable)
@@ -59,10 +100,11 @@ namespace ConsoleApp
                     {
                         bulkCopy.DestinationTableName = tableName;
 
-                        // todo: batch size??
+                        // todo: specify batch size??
                         bulkCopy.ColumnMappings.Add("EventName", "EventName");
                         bulkCopy.ColumnMappings.Add("Type", "Type");
                         bulkCopy.ColumnMappings.Add("EventId", "EventId");
+                        bulkCopy.ColumnMappings.Add("MineSite", "MineSite");
 
                         bulkCopy.WriteToServer(dataTable);
                     }
