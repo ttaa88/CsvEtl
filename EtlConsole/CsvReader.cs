@@ -23,7 +23,7 @@ namespace ConsoleApp
 
                 // TODO: create db table from headers or append data if one already exists?
 
-                using (var table = new DataTable())
+                using (var table = new DataTable())  
                 {
                     table.Columns.Add(headers[0], typeof(string));
                     table.Columns.Add(headers[1], typeof(string));
