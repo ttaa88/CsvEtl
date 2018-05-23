@@ -14,12 +14,9 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             const string filePath = @"C:\Users\gchan\Documents\DBIO2\Performance\dumpfile.csv";
-            var csvReader = new CsvReader();
 
             using (LumenWorks.Framework.IO.Csv.CsvReader csv = new LumenWorks.Framework.IO.Csv.CsvReader(new StreamReader(filePath), true))
             {
-                int fieldCount = csv.FieldCount;
-
                 //string[] headers = csv.GetFieldHeaders();
                 string[] headers = {"EventName", "Type", "EventId", "Version", "Channel", "Level"};
                 
@@ -44,37 +41,37 @@ namespace ConsoleApp
                         table.Rows.Add(csv[0], csv[1], csv[2]);
                     }
 
-                    csvReader.BulkInsertDataTable("etw.DispatchEvent", table);
+                    BulkInsertDataTable("etw.DispatchEvent", table);
                 }
             }
         }
 
-        public bool BulkInsertDataTable(string tableName, DataTable dataTable)
+        public static void BulkInsertDataTable(string tableName, DataTable dataTable)
         {
-            bool isSuccess;
             try
             {
-                var sqlConnectionObj = GetSqlConnection();
-                var bulkCopy = new SqlBulkCopy(sqlConnectionObj, SqlBulkCopyOptions.TableLock | SqlBulkCopyOptions.FireTriggers | SqlBulkCopyOptions.UseInternalTransaction, null);
-                bulkCopy.DestinationTableName = tableName;
-                bulkCopy.WriteToServer(dataTable);
-                isSuccess = true;
+                const string connectionStr = "Data Source=VANAT018; Integrated Security=true; Initial Catalog=ITCOperational;";
+                using (var conn = new SqlConnection(connectionStr))
+                {
+                    conn.Open();
+
+                    using (var bulkCopy = new SqlBulkCopy(conn))
+                    {
+                        bulkCopy.DestinationTableName = tableName;
+
+                        // todo: batch size??
+                        bulkCopy.ColumnMappings.Add("EventName", "EventName");
+                        bulkCopy.ColumnMappings.Add("Type", "Type");
+                        bulkCopy.ColumnMappings.Add("EventId", "EventId");
+
+                        bulkCopy.WriteToServer(dataTable);
+                    }
+                }
             }
             catch (Exception ex)
             {
-                isSuccess = false;
+                throw ex;
             }
-            return isSuccess;
-        }
-
-        private static SqlConnection GetSqlConnection()
-        {
-            const string connectionStr = "Data Source=VANAT018; Integrated Security=true; Initial Catalog=ITCOperational;";
-
-            var conn = new SqlConnection(connectionStr);
-            conn.Open();
-
-            return conn;
         }
 
     }
