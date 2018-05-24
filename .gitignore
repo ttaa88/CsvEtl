@@ -4,3 +4,5 @@ EtlConsole/obj/
 /packages/LumenWorksCsvReader.4.0.0/lib
 /.vs/CsvReader/v15/Server/sqlite3
 /.vs/CsvReader/v15/.suo
+EtlConsoleTest/bin/
+EtlConsoleTest/obj/
