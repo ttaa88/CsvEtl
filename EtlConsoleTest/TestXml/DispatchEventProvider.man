@@ -1,0 +1,282 @@
+<?xml version="1.0"?>
+<instrumentationManifest xsi:schemaLocation="http://schemas.microsoft.com/win/2004/08/events eventman.xsd" xmlns="http://schemas.microsoft.com/win/2004/08/events" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:trace="http://schemas.microsoft.com/win/2004/08/events/trace">
+  <instrumentation>
+    <events>
+      <provider name="Modular-Dispatch-FormsEngine" guid="{2055DE76-71D8-4785-A5D9-E095C68A399F}" symbol="DispatchEtwProvider" resourceFileName="DispatchEventProvider.dll" messageFileName="DispatchEventProvider.dll">
+        <events>
+          <event symbol="RpcReceived" value="1" version="1" level="win:Informational" task="Rpc" opcode="win:Info" template="_taskLifeCycle"></event>
+          <event symbol="RpcStart" value="2" version="1" level="win:Informational" task="Rpc" opcode="win:Start" template="_taskLifeCycle"></event>
+          <event symbol="RpcStop" value="3" version="1" level="win:Informational" task="Rpc" opcode="win:Stop" template="_taskLifeCycle"></event>
+          <event symbol="ActionReceived" value="4" version="1" level="win:Informational" task="Action" opcode="win:Info" template="_taskLifeCycle"></event>
+          <event symbol="ActionStart" value="5" version="1" level="win:Informational" task="Action" opcode="win:Start" template="_taskLifeCycle"></event>
+          <event symbol="ActionStop" value="6" version="1" level="win:Informational" task="Action" opcode="win:Stop" template="_taskLifeCycle"></event>
+          <event symbol="LPCalcReceived" value="7" version="1" level="win:Informational" task="LPCalc" opcode="win:Info" template="_taskLifeCycle"></event>
+          <event symbol="LPCalcStart" value="8" version="1" level="win:Informational" task="LPCalc" opcode="win:Start" template="_taskLifeCycle"></event>
+          <event symbol="LPCalcStop" value="9" version="1" level="win:Informational" task="LPCalc" opcode="win:Stop" template="_taskLifeCycle"></event>
+          <event symbol="ISymStart" value="10" version="1" level="win:Informational" task="LPCalc" opcode="win:Start" template="_taskLifeCycle"></event>
+          <event symbol="ISymStop" value="11" version="1" level="win:Informational" task="LPCalc" opcode="win:Stop" template="_taskLifeCycle"></event>
+          <event symbol="OSymStart" value="12" version="1" level="win:Informational" task="LPCalc" opcode="win:Start" template="_taskLifeCycle"></event>
+          <event symbol="OSymStop" value="13" version="1" level="win:Informational" task="LPCalc" opcode="win:Stop" template="_taskLifeCycle"></event>
+          <event symbol="ExprStart" value="14" version="1" level="win:Informational" task="LPCalc" opcode="win:Start" template="_taskLifeCycle"></event>
+          <event symbol="ExprStop" value="15" version="1" level="win:Informational" task="LPCalc" opcode="win:Stop" template="_taskLifeCycle"></event>
+          <event symbol="ProcessStart" value="16" version="1" level="win:Informational" task="Process" opcode="win:Start" template="_taskLifeCycle"></event>
+          <event symbol="ProcessStop" value="17" version="1" level="win:Informational" task="Process" opcode="win:Stop" template="_taskLifeCycle"></event>
+          <event symbol="OpDataFileOpened" value="201" version="1" level="win:Verbose" opcode="win:Info" template="_fileOpen"></event>
+          <event symbol="OpDataFileClosed" value="202" version="1" level="win:Verbose" opcode="win:Info" template="_fileOperation"></event>
+          <event symbol="OpDataFileFlushed" value="203" version="1" level="win:Verbose" opcode="win:Info" template="_fileOperation"></event>
+          <event symbol="OpDataBlockRead" value="204" version="1" level="win:Verbose" opcode="win:Info" template="_dataRead"></event>
+          <event symbol="OpDataBlockWrite" value="205" version="1" level="win:Verbose" opcode="win:Info" template="_blockWrite"></event>
+          <event symbol="OpDataRecordRead" value="206" version="1" level="win:Verbose" opcode="win:Info" template="_dataRead"></event>
+          <event symbol="OpDataRecordWrite" value="207" version="1" level="win:Verbose" opcode="win:Info" template="_recordWrite"></event>
+          <event symbol="OpDataRecordInsert" value="208" version="1" level="win:Verbose" opcode="win:Info" template="_recordInsert"></event>
+          <event symbol="OpDataRecordDelete" value="209" version="1" level="win:Verbose" opcode="win:Info" template="_recordDelete"></event>
+          <event symbol="OpDataRecordRename" value="210" version="1" level="win:Verbose" opcode="win:Info" template="_recordRename"></event>
+          <event symbol="OpDataCachedRecordRead" value="211" version="1" level="win:Verbose" opcode="win:Info" template="_dataRead"></event>
+          <event symbol="OpDataServerRecordRead" value="212" version="1" level="win:Verbose" opcode="win:Info" template="_dataRead"></event>
+          <event symbol="OpDataWriteBehindPut" value="213" version="1" level="win:Verbose" opcode="win:Info" template="_recordWriteBehind"></event>
+          <event symbol="OpDataRecordFind" value="214" version="1" level="win:Verbose" opcode="win:Info" template="_recordFind"></event>
+          <event symbol="FormsLogMessage" value="301" version="1" level="win:Verbose" opcode="win:Info" template="_logMessage"></event>
+          <event symbol="FormsLogEvent" value="302" version="1" level="win:Verbose" opcode="win:Info" template="_logMessage"></event>
+          <event symbol="HostLogMessage" value="303" version="1" level="win:Verbose" opcode="win:Info" template="_logMessage"></event>
+          <event symbol="MessageSent" value="401" version="1" level="win:Verbose" opcode="win:Info" template="_messageBroker"></event>
+          <event symbol="MessageReceived" value="402" version="1" level="win:Verbose" opcode="win:Info" template="_messageBroker"></event>
+          <event symbol="MessageConsumed" value="403" version="1" level="win:Verbose" opcode="win:Info" template="_messageBroker"></event>
+          <event symbol="NetPingHandled" value="501" version="1" level="win:Verbose" opcode="win:Info" template="_omsMessageHandled"></event>
+          <event symbol="NetNoTalkHandled" value="502" version="1" level="win:Verbose" opcode="win:Info" template="_omsMessageHandled"></event>
+          <event symbol="NetGetDeviceByName" value="503" version="1" level="win:Verbose" opcode="win:Info" template="_omsLookup"></event>
+          <event symbol="NetGetDeviceByAddress" value="504" version="1" level="win:Verbose" opcode="win:Info" template="_omsLookup"></event>
+          <event symbol="NetReconnect" value="505" version="1" level="win:Verbose" opcode="win:Info" template="_omsReconnect"></event>
+          <event symbol="FormsInputSymbol" value="601" version="1" level="win:Verbose" opcode="win:Info" template="_symbolEval"></event>
+          <event symbol="FormsOutputSymbol" value="602" version="1" level="win:Verbose" opcode="win:Info" template="_symbolEval"></event>
+          <event symbol="FormsExpression" value="603" version="1" level="win:Verbose" opcode="win:Info" template="_symbolEval"></event>
+        </events>
+        <levels>
+          <level name="Measurement" symbol="LEVEL_MEASUREMENT" value="16"></level>
+        </levels>
+        <tasks>
+          <task name="Rpc" symbol="_taskRpc" value="1" eventGUID="{00000000-0000-0000-0000-000000000000}" message="$(string.DispatchEtwProvider.task._taskRpc.message)"></task>
+          <task name="Action" symbol="_taskAction" value="2" eventGUID="{00000000-0000-0000-0000-000000000000}" message="$(string.DispatchEtwProvider.task._taskAction.message)"></task>
+          <task name="LPCalc" symbol="_taskLpCalc" value="3" eventGUID="{00000000-0000-0000-0000-000000000000}" message="$(string.DispatchEtwProvider.task._taskLpCalc.message)"></task>
+          <task name="ISym" symbol="_taskInputSymbol" value="4" eventGUID="{00000000-0000-0000-0000-000000000000}" message="$(string.DispatchEtwProvider.task._taskInputSymbol.message)"></task>
+          <task name="OSym" symbol="_taskOutputSymbol" value="5" eventGUID="{00000000-0000-0000-0000-000000000000}" message="$(string.DispatchEtwProvider.task._taskOutputSymbol.message)"></task>
+          <task name="Expr" symbol="_taskExpression" value="6" eventGUID="{00000000-0000-0000-0000-000000000000}" message="$(string.DispatchEtwProvider.task._taskExpression.message)"></task>
+          <task name="Process" symbol="_taskProcess" value="7" eventGUID="{00000000-0000-0000-0000-000000000000}"></task>
+        </tasks>
+        <opcodes></opcodes>
+        <maps>
+          <valueMap name="_logLevel">
+            <map value="1" message="$(string.Modular-Dispatch-FormsEngine.map._logLevel.1.message)"></map>
+            <map value="2" message="$(string.Modular-Dispatch-FormsEngine.map._logLevel.2.message)"></map>
+            <map value="3" message="$(string.Modular-Dispatch-FormsEngine.map._logLevel.3.message)"></map>
+            <map value="4" message="$(string.Modular-Dispatch-FormsEngine.map._logLevel.4.message)"></map>
+            <map value="5" message="$(string.Modular-Dispatch-FormsEngine.map._logLevel.5.message)"></map>
+            <map value="6" message="$(string.Modular-Dispatch-FormsEngine.map._logLevel.6.message)"></map>
+          </valueMap>
+          <valueMap name="_activityLifeCycle">
+            <map value="1" message="$(string.Modular-Dispatch-FormsEngine.map._activityLifeCycle.1.message)"></map>
+            <map value="2" message="$(string.Modular-Dispatch-FormsEngine.map._activityLifeCycle.2.message)"></map>
+            <map value="3" message="$(string.Modular-Dispatch-FormsEngine.map._activityLifeCycle.3.message)"></map>
+            <map value="4" message="$(string.Modular-Dispatch-FormsEngine.map._activityLifeCycle.4.message)"></map>
+          </valueMap>
+          <valueMap name="_fileOpenMode">
+            <map value="1" message="$(string.Modular-Dispatch-FormsEngine.map._fileOpenMode.1.message)"></map>
+            <map value="2" message="$(string.Modular-Dispatch-FormsEngine.map._fileOpenMode.2.message)"></map>
+            <map value="3" message="$(string.Modular-Dispatch-FormsEngine.map._fileOpenMode.3.message)"></map>
+          </valueMap>
+          <valueMap name="_fileCreateStatus">
+            <map value="0" message="$(string.Modular-Dispatch-FormsEngine.map._fileCreateStatus.0.message)"></map>
+            <map value="1" message="$(string.Modular-Dispatch-FormsEngine.map._fileCreateStatus.1.message)"></map>
+            <map value="2" message="$(string.Modular-Dispatch-FormsEngine.map._fileCreateStatus.2.message)"></map>
+          </valueMap>
+        </maps>
+        <templates>
+          <template tid="_taskLifeCycle">
+            <data name="ActivityId" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="Timestamp" inType="win:FILETIME" outType="xs:dateTime"></data>
+            <data name="Duration" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="ActivityPath" inType="win:AnsiString" outType="xs:string"></data>
+            <data name="ActivityParentId" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="ActivityName" inType="win:AnsiString" outType="xs:string"></data>
+            <data name="ActivityState" inType="win:UInt8" map="_activityLifeCycle"></data>
+          </template>
+          <template tid="_taskEvent">
+            <data name="ActivityId" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="Timestamp" inType="win:FILETIME" outType="xs:dateTime"></data>
+          </template>
+          <template tid="_fileOpen">
+            <data name="ActivityId" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="Timestamp" inType="win:FILETIME" outType="xs:dateTime"></data>
+            <data name="Duration" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="Name" inType="win:AnsiString" outType="xs:string"></data>
+            <data name="AccessMode" inType="win:UInt8" map="_fileOpenMode"></data>
+            <data name="FileHandle" inType="win:Int32" outType="xs:int"></data>
+            <data name="FileOpenResult" inType="win:UInt8" map="_fileCreateStatus"></data>
+          </template>
+          <template tid="_fileOperation">
+            <data name="ActivityId" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="Timestamp" inType="win:FILETIME" outType="xs:dateTime"></data>
+            <data name="Duration" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="FileHandle" inType="win:Int32" outType="xs:int"></data>
+          </template>
+          <template tid="_dataRead">
+            <data name="ActivityId" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="Timestamp" inType="win:FILETIME" outType="xs:dateTime"></data>
+            <data name="Duration" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="FileHandle" inType="win:Int32" outType="xs:int"></data>
+            <data name="GNodeId" inType="win:Int32" outType="xs:int"></data>
+            <data name="Address" inType="win:Int32" outType="xs:int"></data>
+            <data name="SizeRequested" inType="win:Int32" outType="xs:int"></data>
+            <data name="SizeReturned" inType="win:Int32" outType="xs:int"></data>
+            <data name="WasWriteBehind" inType="win:Boolean" outType="xs:boolean"></data>
+            <data name="NumRecordsRequested" inType="win:Int32" outType="xs:int"></data>
+            <data name="NumRecordsReceived" inType="win:Int32" outType="xs:int"></data>
+          </template>
+          <template tid="_blockWrite">
+            <data name="ActivityId" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="Timestamp" inType="win:FILETIME" outType="xs:dateTime"></data>
+            <data name="Duration" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="FileHandle" inType="win:Int32" outType="xs:int"></data>
+            <data name="GNodeId" inType="win:Int32" outType="xs:int"></data>
+            <data name="Address" inType="win:Int32" outType="xs:int"></data>
+            <data name="SizeRequested" inType="win:Int32" outType="xs:int"></data>
+          </template>
+          <template tid="_recordWrite">
+            <data name="ActivityId" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="Timestamp" inType="win:FILETIME" outType="xs:dateTime"></data>
+            <data name="Duration" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="FileHandle" inType="win:Int32" outType="xs:int"></data>
+            <data name="GNodeId" inType="win:Int32" outType="xs:int"></data>
+            <data name="Address" inType="win:Int32" outType="xs:int"></data>
+            <data name="SizeRequested" inType="win:Int32" outType="xs:int"></data>
+            <data name="SizeSent" inType="win:Int32" outType="xs:int"></data>
+            <data name="MergeRequired" inType="win:Boolean" outType="xs:boolean"></data>
+            <data name="Succeeded" inType="win:Boolean" outType="xs:boolean"></data>
+          </template>
+          <template tid="_recordWriteBehind">
+            <data name="ActivityId" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="Timestamp" inType="win:FILETIME" outType="xs:dateTime"></data>
+            <data name="Duration" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="FileHandle" inType="win:Int32" outType="xs:int"></data>
+            <data name="GNodeId" inType="win:Int32" outType="xs:int"></data>
+            <data name="Address" inType="win:Int32" outType="xs:int"></data>
+            <data name="SizeRequested" inType="win:Int32" outType="xs:int"></data>
+          </template>
+          <template tid="_recordInsert">
+            <data name="ActivityId" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="Timestamp" inType="win:FILETIME" outType="xs:dateTime"></data>
+            <data name="Duration" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="FileHandle" inType="win:Int32" outType="xs:int"></data>
+            <data name="GNodeId" inType="win:Int32" outType="xs:int"></data>
+            <data name="Address" inType="win:Int32" outType="xs:int"></data>
+            <data name="SizeRequested" inType="win:Int32" outType="xs:int"></data>
+          </template>
+          <template tid="_recordDelete">
+            <data name="ActivityId" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="Timestamp" inType="win:FILETIME" outType="xs:dateTime"></data>
+            <data name="Duration" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="FileHandle" inType="win:Int32" outType="xs:int"></data>
+            <data name="GNodeId" inType="win:Int32" outType="xs:int"></data>
+            <data name="Address" inType="win:Int32" outType="xs:int"></data>
+          </template>
+          <template tid="_recordRename">
+            <data name="ActivityId" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="Timestamp" inType="win:FILETIME" outType="xs:dateTime"></data>
+            <data name="Duration" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="FileHandle" inType="win:Int32" outType="xs:int"></data>
+            <data name="GNodeId" inType="win:Int32" outType="xs:int"></data>
+            <data name="Address" inType="win:Int32" outType="xs:int"></data>
+          </template>
+          <template tid="_recordFind">
+            <data name="ActivityId" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="Timestamp" inType="win:FILETIME" outType="xs:dateTime"></data>
+            <data name="Duration" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="FileHandle" inType="win:Int32" outType="xs:int"></data>
+            <data name="GNodeId" inType="win:Int32" outType="xs:int"></data>
+            <data name="KeyCount" inType="win:Int32" outType="xs:int"></data>
+            <data name="FindCount" inType="win:Int32" outType="xs:int"></data>
+          </template>
+          <template tid="_logMessage">
+            <data name="ActivityId" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="Timestamp" inType="win:FILETIME" outType="xs:dateTime"></data>
+            <data name="Duration" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="MessageLength" inType="win:Int32" outType="xs:int"></data>
+            <data name="MessageLevel" inType="win:UInt32" map="_logLevel"></data>
+            <data name="MessageVerbosity" inType="win:Int32" outType="xs:int"></data>
+            <data name="ConfiguredVerbosity" inType="win:Int32" outType="xs:int"></data>
+            <data name="WasFiltered" inType="win:Boolean" outType="xs:boolean"></data>
+          </template>
+          <template tid="_messageBroker">
+            <data name="ActivityId" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="Timestamp" inType="win:FILETIME" outType="xs:dateTime"></data>
+            <data name="Duration" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="ChannelId" inType="win:Int32" outType="xs:int"></data>
+            <data name="MessageLength" inType="win:Int32" outType="xs:int"></data>
+            <data name="NumQueuedMessages" inType="win:Int32" outType="xs:int"></data>
+            <data name="NumRetries" inType="win:Int32" outType="xs:int"></data>
+          </template>
+          <template tid="_omsMessageHandled">
+            <data name="ActivityId" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="Timestamp" inType="win:FILETIME" outType="xs:dateTime"></data>
+            <data name="Duration" inType="win:UInt64" outType="xs:unsignedLong"></data>
+          </template>
+          <template tid="_omsLookup">
+            <data name="ActivityId" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="Timestamp" inType="win:FILETIME" outType="xs:dateTime"></data>
+            <data name="Duration" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="WasCached" inType="win:Boolean" outType="xs:boolean"></data>
+          </template>
+          <template tid="_omsReconnect">
+          </template>
+          <template tid="_symbolEval">
+            <data name="ActivityId" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="Timestamp" inType="win:FILETIME" outType="xs:dateTime"></data>
+            <data name="Duration" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="Name" inType="win:AnsiString" outType="xs:string"></data>
+          </template>
+          <template tid="_exprEval">
+            <data name="ActivityId" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="Timestamp" inType="win:FILETIME" outType="xs:dateTime"></data>
+            <data name="Duration" inType="win:UInt64" outType="xs:unsignedLong"></data>
+            <data name="Name" inType="win:AnsiString" outType="xs:string"></data>
+            <data name="SourceFile" inType="win:AnsiString" outType="xs:string"></data>
+            <data name="SourceLine" inType="win:Int32" outType="xs:int"></data>
+          </template>
+        </templates>
+      </provider>
+    </events>
+  </instrumentation>
+  <localization>
+    <resources culture="en-US">
+      <stringTable>
+        <string id="task.None" value="None"></string>
+        <string id="opcode.Stop" value="Stop"></string>
+        <string id="opcode.Start" value="Start"></string>
+        <string id="opcode.Info" value="Info"></string>
+        <string id="level.Verbose" value="Verbose"></string>
+        <string id="level.Informational" value="Information"></string>
+        <string id="Modular-Dispatch-FormsEngine.map._logLevel.6.message" value="Trace"></string>
+        <string id="Modular-Dispatch-FormsEngine.map._logLevel.5.message" value="Fatal"></string>
+        <string id="Modular-Dispatch-FormsEngine.map._logLevel.4.message" value="Error"></string>
+        <string id="Modular-Dispatch-FormsEngine.map._logLevel.3.message" value="Warning"></string>
+        <string id="Modular-Dispatch-FormsEngine.map._logLevel.2.message" value="Debug"></string>
+        <string id="Modular-Dispatch-FormsEngine.map._logLevel.1.message" value="Info"></string>
+        <string id="Modular-Dispatch-FormsEngine.map._fileOpenMode.3.message" value="ReadWrite"></string>
+        <string id="Modular-Dispatch-FormsEngine.map._fileOpenMode.2.message" value="ReadOnly"></string>
+        <string id="Modular-Dispatch-FormsEngine.map._fileOpenMode.1.message" value="Create"></string>
+        <string id="Modular-Dispatch-FormsEngine.map._fileCreateStatus.2.message" value="CreatedNew"></string>
+        <string id="Modular-Dispatch-FormsEngine.map._fileCreateStatus.1.message" value="OpenedExisting"></string>
+        <string id="Modular-Dispatch-FormsEngine.map._fileCreateStatus.0.message" value="NotOpened"></string>
+        <string id="Modular-Dispatch-FormsEngine.map._activityLifeCycle.4.message" value="Incomplete"></string>
+        <string id="Modular-Dispatch-FormsEngine.map._activityLifeCycle.3.message" value="Complete"></string>
+        <string id="Modular-Dispatch-FormsEngine.map._activityLifeCycle.2.message" value="Executing"></string>
+        <string id="Modular-Dispatch-FormsEngine.map._activityLifeCycle.1.message" value="Pending"></string>
+        <string id="DispatchEtwProvider.task._taskRpc.message" value="Handle an incoming RPC"></string>
+        <string id="DispatchEtwProvider.task._taskOutputSymbol.message" value="Process a FORMS language output symbol"></string>
+        <string id="DispatchEtwProvider.task._taskLpCalc.message" value="Process LP calculation request"></string>
+        <string id="DispatchEtwProvider.task._taskInputSymbol.message" value="Process a FORMS language input symbol"></string>
+        <string id="DispatchEtwProvider.task._taskExpression.message" value="Process a named FORMS language expression"></string>
+        <string id="DispatchEtwProvider.task._taskAction.message" value="Handle incoming ACTION "></string>
+      </stringTable>
+    </resources>
+  </localization>
+</instrumentationManifest>

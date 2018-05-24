@@ -11,6 +11,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -44,6 +45,13 @@
   <ItemGroup>
     <Compile Include="CsvReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Xml\Event.cs" />
+    <Compile Include="Xml\Level.cs" />
+    <Compile Include="Xml\Localization.cs" />
+    <Compile Include="Xml\ManifestObject.cs" />
+    <Compile Include="Xml\Map.cs" />
+    <Compile Include="Xml\Task.cs" />
+    <Compile Include="Xml\Template.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
